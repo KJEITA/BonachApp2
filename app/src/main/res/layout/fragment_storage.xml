@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F3F5"
+    tools:context=".presentation.ui.message.MessageFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/send_message_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SearchView
+        android:id="@+id/files_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/search_style"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@color/colorItemWhite"
+        android:queryHint="@string/search_files"
+        android:showAsAction="always"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_tab_layout"
+        app:layout_constraintWidth_percent="0.9">
+
+    </SearchView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/message_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Входящие" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Исходящие" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.skydoves.androidveil.VeilRecyclerFrameView
+        android:id="@+id/message_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/files_search"
+        app:veilFrame_layout="@layout/item_message"
+        app:veilFrame_veiled="true"
+        app:veilFrame_shimmerEnable="true"
+        app:veilFrame_baseColor="@android:color/holo_orange_dark"
+        app:veilFrame_highlightColor="@android:color/holo_orange_light"
+        app:veilFrame_baseAlpha="0.6"
+        app:veilFrame_highlightAlpha="1.0"
+        app:veilFrame_radius="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
